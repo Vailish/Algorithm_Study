@@ -1,0 +1,1 @@
+[print(f'#{case} {max(list(map(int,input().split())))}') for case in range(1, int(input())+1)]
