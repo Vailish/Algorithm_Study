@@ -1,4 +1,0 @@
-"one4seveneight"
-"23four5six7"
-"2three45sixseven"
-"123"
