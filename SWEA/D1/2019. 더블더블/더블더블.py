@@ -1,0 +1,1 @@
+[print(2**num, end=' ') for num in range(int(input())+1)]
