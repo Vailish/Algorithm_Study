@@ -14,19 +14,10 @@ for case in range(1, 1 + int(input())):
         if '1' in temp:
             data = temp
     # 필요없는 코드 제거
-    # 앞부분은 index로 1이 나오는 부분 찾아서 거기서 앞에 3자리부터 검색
-    # 뒷부분은 뒤집은 뒤 1이 나오는 부분 이후 제거
-    idx_1 = data.index('1')-1
-    for num in range(idx_1-2, M-6):
-        if data[num:num+7] in idx:
-            start = num
-            break
-    data = data[start:-data[::-1].index('1')]
+    end = M -data[::-1].index('1')
+    start = end - 56
+    data = data[start:end]
 
-    # 그래도 0이 앞에 온다면 한 번 더 제거
-    if len(data) > 56:
-        k = len(data) - 56
-        data = data[k:]
     # 암호 해석하기
     result = []
     for num in range(0, 56, 7):
