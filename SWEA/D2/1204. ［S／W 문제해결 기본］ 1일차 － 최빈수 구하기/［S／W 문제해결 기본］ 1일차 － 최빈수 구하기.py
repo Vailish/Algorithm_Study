@@ -1,9 +1,13 @@
-for _ in range(1, 1 + int(input())):
+for _ in range(1, 1+int(input())):
     case = int(input())
-    arr = list(map(int, input().split()))
-    mode = [0, 0]  # 최빈값 = [value, times]
-    for num in sorted(list(set(arr))):
-        if arr.count(num) >= mode[1]:
-            mode[0] = num
-            mode[1] = arr.count(num)
-    print(f'#{case} {mode[0]}')
+    scores = list(map(int, input().split()))
+    cnt = [0] * 101
+    for score in scores:
+        cnt[score] += 1
+    tmp = 0
+    answer = 0
+    for num in range(len(cnt)):
+        if tmp <= cnt[num]:
+            answer = num
+            tmp = cnt[num]
+    print(f'#{case}', answer)
