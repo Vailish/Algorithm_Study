@@ -1,18 +1,14 @@
-money = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
-for case in range(1, 1 + int(input())):
-    price = int(input())
-    print(f'#{case}')
+def solution(N):
+    for i in range(len(cnt)):
+        if value[i] <= N:
+            cnt[i], N = divmod(N, value[i])
 
-    for cash in money:
-        cnt = 0
-        while True:
-            if price >= cash:
-                price -= cash
-                cnt += 1
-            else:
-                if cnt == 0:
-                    print('0', end=' ')
-                else:
-                    print(str(cnt), end=' ')
-                break
-    print()
+    return cnt
+
+
+for case in range(1, 1+int(input())):
+    N = int(input())  # 거슬러 주어야 할 금액
+    cnt = [0] * 8
+    value = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
+    print(f'#{case}')
+    print(*solution(N))
