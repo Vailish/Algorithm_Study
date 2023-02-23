@@ -6,7 +6,7 @@ def solution(maps):
     len_c = len(maps[0])
     def bfs(start, end):
         v1, v2 = start
-        queue = deque([])
+        queue = deque()
         queue.append((v1, v2, 1))
 
         while queue:
@@ -50,3 +50,4 @@ def solution(maps):
     if to_exit == -1:
         return -1
     return to_lever + to_exit
+
