@@ -20,7 +20,7 @@ def solution(maps):
         for i in range(4):
             nr = r + dr[i]
             nc = c + dc[i]
-            if 0 <= nr < n and 0 <= nc < m and maps[nr][nc] and not visited[nr][nc]:
+            if 0 <= nr < n and 0 <= nc < m and maps[nr][nc]:
                 # 목표에 도달했다면, 거리를 반환
                 if (nr, nc) == (n - 1, m - 1):
                     return d + 1
