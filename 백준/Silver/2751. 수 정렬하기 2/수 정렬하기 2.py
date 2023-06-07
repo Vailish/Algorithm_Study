@@ -4,8 +4,7 @@ import heapq
 def solution():
     heap = []
     for _ in range(int(input())):
-        heap.append(int(input()))
-    heapq.heapify(heap)
+        heapq.heappush(heap, int(input()))
     while heap:
         print(heapq.heappop(heap))
 
