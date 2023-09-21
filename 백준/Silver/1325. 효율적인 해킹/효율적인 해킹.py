@@ -1,42 +1,42 @@
 import sys
 from collections import deque
+
+
 input = sys.stdin.readline
 
-n,m = map(int,input().split())
+def solution():
+    def bfs(v):
+        queue = deque([v])
+        visited = [False] * (N+1)
+        cnt = 0
+        visited[v] = True
+        while queue:
+            v = queue.popleft()
+            for next_v in graph[v]:
+                if not visited[next_v]:
+                    cnt += 1
+                    queue.append(next_v)
+                    visited[next_v] = True
 
-def bfs(start):
-	cnt = 1
-	queue = deque([start])
-	visit = [False for _ in range(n+1)]
-	visit[start] = True
+        return cnt
 
-	while queue:
-		cur = queue.popleft()
 
-		for nx in graph[cur]:
-			if not visit[nx]:
-				visit[nx] = True
-				cnt += 1
-				queue.append(nx)
+    N, M = map(int, input().split())  # N = 노드의 수, M = 경로의 수
+    graph = [[] for _ in range(N+1)]
+    for _ in range(M):
+        v1, v2 = map(int, input().split())
+        graph[v2].append(v1)
 
-	return cnt
+    max_cnt = 0
+    answer = []
 
-graph = [[] for _ in range(n+1)]
+    for i in range(1, N+1):
+        cnt = bfs(i)
+        if max_cnt < cnt:
+            max_cnt = cnt
+            answer = [i]
+        elif max_cnt == cnt:
+            answer.append(i)
+    print(*answer)
 
-for _ in range(m):
-	a,b = map(int,input().split())
-	graph[b].append(a)
-
-maxCnt = 1
-ans = []
-
-for i in range(1,n+1):
-	cnt = bfs(i)
-	if cnt > maxCnt:
-		maxCnt = cnt
-		ans.clear()
-		ans.append(i)
-	elif cnt == maxCnt:
-		ans.append(i)
-
-print(*ans)
+solution()
