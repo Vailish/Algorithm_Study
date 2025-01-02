@@ -7,12 +7,7 @@ class Solution {
         for (int i=0; i<my_string.length(); i++) {
             answer[i] = my_string.substring(i);
         }
-        Arrays.sort(answer, new Comparator<String>() {
-            @Override
-            public int compare(String s1, String s2) {
-                return s1.compareTo(s2); // 기본 문자열 사전순 비교
-            }
-        });
+        Arrays.sort(answer);
         return answer;
     }
 }
